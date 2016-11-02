@@ -93,7 +93,7 @@
 
     Private Sub Form3_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'InventarioDataSet.Proveedor' Puede moverla o quitarla según sea necesario.
-        Me.ProveedorTableAdapter.Fill(Me.InventarioDataSet.Proveedor)
+        'Me.ProveedorTableAdapter.Fill(Me.InventarioDataSet.Proveedor)
         TextBox1.Enabled = False
         TextBox2.Enabled = False
         TextBox3.Enabled = False

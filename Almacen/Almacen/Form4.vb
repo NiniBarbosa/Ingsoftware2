@@ -2,9 +2,9 @@
 
     Private Sub Form4_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'InventarioDataSet.Tallas' Puede moverla o quitarla según sea necesario.
-        Me.TallasTableAdapter.Fill(Me.InventarioDataSet.Tallas)
+        'Me.TallasTableAdapter.Fill(Me.InventarioDataSet.Tallas)
         'TODO: esta línea de código carga datos en la tabla 'InventarioDataSet.ingreso_mercancia' Puede moverla o quitarla según sea necesario.
-        Me.Ingreso_mercanciaTableAdapter.Fill(Me.InventarioDataSet.ingreso_mercancia)
+        'Me.Ingreso_mercanciaTableAdapter.Fill(Me.InventarioDataSet.ingreso_mercancia)
         TextBox1.Enabled = False
         TextBox2.Enabled = False
         TextBox3.Enabled = False

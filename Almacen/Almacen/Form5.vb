@@ -1,4 +1,6 @@
-﻿Public Class Form5
+﻿Imports System.Data.SQLite
+
+Public Class Form5
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
         Dim salir As DialogResult
         salir = MessageBox.Show("¿Desea Salir?", "Salir de la aplicación", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
@@ -9,7 +11,7 @@
     End Sub
 
 
-   
+
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         Button1.Enabled = False
         Button2.Enabled = True
@@ -24,7 +26,7 @@
         TextBox4.Enabled = False
         TextBox5.Enabled = False
 
-        If (inventarioDataSet.HasChanges()) Then
+        If (InventarioDataSet.HasChanges()) Then
             Me.ClienteTableAdapter.Update(Me.InventarioDataSet.cliente)
             MessageBox.Show("Ingreso de cliente correctamente")
         End If
@@ -123,7 +125,7 @@
                 Button1.Enabled = False
                 Button3.Enabled = True
                 Button4.Enabled = True
-                
+
             End If
         End If
         'Ir al primer resgistro de la tabla

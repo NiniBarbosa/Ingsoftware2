@@ -38,7 +38,7 @@ Partial Class Form1
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Franklin Gothic Medium Cond", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Indigo
-        Me.Label5.Location = New System.Drawing.Point(612, 85)
+        Me.Label5.Location = New System.Drawing.Point(617, 85)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(258, 61)
         Me.Label5.TabIndex = 9
@@ -50,7 +50,7 @@ Partial Class Form1
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Franklin Gothic Medium Cond", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Indigo
-        Me.Label4.Location = New System.Drawing.Point(580, 35)
+        Me.Label4.Location = New System.Drawing.Point(585, 35)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(211, 61)
         Me.Label4.TabIndex = 8
@@ -59,7 +59,7 @@ Partial Class Form1
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(525, 541)
+        Me.Button1.Location = New System.Drawing.Point(530, 541)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(164, 45)
         Me.Button1.TabIndex = 14
@@ -69,7 +69,7 @@ Partial Class Form1
         'TextBox2
         '
         Me.TextBox2.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(473, 483)
+        Me.TextBox2.Location = New System.Drawing.Point(478, 483)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TextBox2.Size = New System.Drawing.Size(216, 37)
@@ -78,7 +78,7 @@ Partial Class Form1
         'TextBox1
         '
         Me.TextBox1.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(473, 396)
+        Me.TextBox1.Location = New System.Drawing.Point(478, 396)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(216, 37)
         Me.TextBox1.TabIndex = 12
@@ -89,7 +89,7 @@ Partial Class Form1
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(342, 486)
+        Me.Label3.Location = New System.Drawing.Point(347, 486)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(125, 30)
         Me.Label3.TabIndex = 11
@@ -101,7 +101,7 @@ Partial Class Form1
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(379, 396)
+        Me.Label2.Location = New System.Drawing.Point(384, 396)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(88, 30)
         Me.Label2.TabIndex = 10
