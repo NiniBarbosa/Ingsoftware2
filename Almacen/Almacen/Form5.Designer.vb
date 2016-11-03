@@ -54,19 +54,20 @@ Partial Class Form5
         'Button5
         '
         Me.Button5.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Location = New System.Drawing.Point(183, 690)
+        Me.Button5.Location = New System.Drawing.Point(205, 690)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(105, 36)
+        Me.Button5.Size = New System.Drawing.Size(120, 36)
         Me.Button5.TabIndex = 31
         Me.Button5.Text = "Salir"
         Me.Button5.UseVisualStyleBackColor = True
         '
         'Button4
         '
+        Me.Button4.Enabled = False
         Me.Button4.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(326, 515)
+        Me.Button4.Location = New System.Drawing.Point(345, 515)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(105, 36)
+        Me.Button4.Size = New System.Drawing.Size(120, 36)
         Me.Button4.TabIndex = 30
         Me.Button4.Text = "Eliminar"
         Me.Button4.UseVisualStyleBackColor = True
@@ -74,31 +75,33 @@ Partial Class Form5
         'Button3
         '
         Me.Button3.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(27, 515)
+        Me.Button3.Location = New System.Drawing.Point(55, 515)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(116, 36)
+        Me.Button3.Size = New System.Drawing.Size(120, 36)
         Me.Button3.TabIndex = 29
         Me.Button3.Text = "Consultar"
         Me.Button3.UseVisualStyleBackColor = True
         '
         'Button2
         '
+        Me.Button2.Enabled = False
         Me.Button2.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(317, 442)
+        Me.Button2.Location = New System.Drawing.Point(345, 442)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(127, 36)
+        Me.Button2.Size = New System.Drawing.Size(120, 36)
         Me.Button2.TabIndex = 28
         Me.Button2.Text = "Modificar"
         Me.Button2.UseVisualStyleBackColor = True
-        Me.Button2.Visible = False
         '
         'Button1
         '
+        Me.Button1.Enabled = False
         Me.Button1.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(31, 442)
+        Me.Button1.Location = New System.Drawing.Point(55, 442)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(105, 36)
+        Me.Button1.Size = New System.Drawing.Size(120, 36)
         Me.Button1.TabIndex = 27
+        Me.Button1.TabStop = False
         Me.Button1.Text = "Guardar"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -235,9 +238,9 @@ Partial Class Form5
         'Button6
         '
         Me.Button6.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(309, 588)
+        Me.Button6.Location = New System.Drawing.Point(345, 588)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(135, 70)
+        Me.Button6.Size = New System.Drawing.Size(120, 70)
         Me.Button6.TabIndex = 33
         Me.Button6.Text = "Mostrar Datos"
         Me.Button6.UseVisualStyleBackColor = True
@@ -259,9 +262,9 @@ Partial Class Form5
         'Button7
         '
         Me.Button7.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.Location = New System.Drawing.Point(27, 588)
+        Me.Button7.Location = New System.Drawing.Point(55, 588)
         Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(131, 70)
+        Me.Button7.Size = New System.Drawing.Size(120, 70)
         Me.Button7.TabIndex = 35
         Me.Button7.Text = "Habilitar campos"
         Me.Button7.UseVisualStyleBackColor = True

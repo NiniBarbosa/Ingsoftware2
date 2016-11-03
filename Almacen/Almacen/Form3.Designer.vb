@@ -29,10 +29,8 @@ Partial Class Form3
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.InventarioDataSet = New Almacen.inventarioDataSet()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
@@ -40,7 +38,6 @@ Partial Class Form3
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -60,6 +57,8 @@ Partial Class Form3
         Me.ClienteTableAdapter = New Almacen.inventarioDataSetTableAdapters.clienteTableAdapter()
         Me.ProveedorTableAdapter = New Almacen.inventarioDataSetTableAdapters.ProveedorTableAdapter()
         Me.Button6 = New System.Windows.Forms.Button()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Button7 = New System.Windows.Forms.Button()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.InventarioDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -69,9 +68,9 @@ Partial Class Form3
         'Button5
         '
         Me.Button5.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Location = New System.Drawing.Point(997, 518)
+        Me.Button5.Location = New System.Drawing.Point(1009, 442)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(102, 41)
+        Me.Button5.Size = New System.Drawing.Size(120, 41)
         Me.Button5.TabIndex = 39
         Me.Button5.Text = "Salir"
         Me.Button5.UseVisualStyleBackColor = True
@@ -79,9 +78,9 @@ Partial Class Form3
         'Button4
         '
         Me.Button4.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(1093, 437)
+        Me.Button4.Location = New System.Drawing.Point(1091, 361)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(102, 41)
+        Me.Button4.Size = New System.Drawing.Size(120, 41)
         Me.Button4.TabIndex = 38
         Me.Button4.Text = "Eliminar"
         Me.Button4.UseVisualStyleBackColor = True
@@ -89,9 +88,9 @@ Partial Class Form3
         'Button3
         '
         Me.Button3.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(904, 437)
+        Me.Button3.Location = New System.Drawing.Point(916, 361)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(135, 41)
+        Me.Button3.Size = New System.Drawing.Size(120, 41)
         Me.Button3.TabIndex = 37
         Me.Button3.Text = "Consultar"
         Me.Button3.UseVisualStyleBackColor = True
@@ -99,9 +98,9 @@ Partial Class Form3
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(739, 437)
+        Me.Button2.Location = New System.Drawing.Point(731, 361)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(119, 41)
+        Me.Button2.Size = New System.Drawing.Size(120, 41)
         Me.Button2.TabIndex = 36
         Me.Button2.Text = "Modificar"
         Me.Button2.UseVisualStyleBackColor = True
@@ -109,21 +108,12 @@ Partial Class Form3
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(576, 437)
+        Me.Button1.Location = New System.Drawing.Point(563, 361)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(116, 41)
+        Me.Button1.Size = New System.Drawing.Size(120, 41)
         Me.Button1.TabIndex = 35
         Me.Button1.Text = "Guardar"
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'TextBox7
-        '
-        Me.TextBox7.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "Correo_electronico", True))
-        Me.TextBox7.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox7.Location = New System.Drawing.Point(1009, 340)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(262, 34)
-        Me.TextBox7.TabIndex = 34
         '
         'BindingSource1
         '
@@ -135,20 +125,11 @@ Partial Class Form3
         Me.InventarioDataSet.DataSetName = "inventarioDataSet"
         Me.InventarioDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'TextBox6
-        '
-        Me.TextBox6.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "Tipo_proveedor", True))
-        Me.TextBox6.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox6.Location = New System.Drawing.Point(533, 343)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(262, 34)
-        Me.TextBox6.TabIndex = 33
-        '
         'TextBox5
         '
         Me.TextBox5.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "Direccion", True))
         Me.TextBox5.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox5.Location = New System.Drawing.Point(1009, 270)
+        Me.TextBox5.Location = New System.Drawing.Point(533, 271)
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(262, 34)
         Me.TextBox5.TabIndex = 32
@@ -157,7 +138,7 @@ Partial Class Form3
         '
         Me.TextBox4.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "Telefono", True))
         Me.TextBox4.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox4.Location = New System.Drawing.Point(533, 273)
+        Me.TextBox4.Location = New System.Drawing.Point(1009, 205)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(262, 34)
         Me.TextBox4.TabIndex = 31
@@ -194,7 +175,7 @@ Partial Class Form3
         Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.Color.Transparent
         Me.Label8.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(828, 343)
+        Me.Label8.Location = New System.Drawing.Point(345, 274)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(182, 27)
         Me.Label8.TabIndex = 27
@@ -205,33 +186,22 @@ Partial Class Form3
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(388, 343)
+        Me.Label7.Location = New System.Drawing.Point(855, 277)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(148, 27)
         Me.Label7.TabIndex = 26
         Me.Label7.Text = "Tipo Proveedor"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.BackColor = System.Drawing.Color.Transparent
-        Me.Label6.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(914, 273)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(96, 27)
-        Me.Label6.TabIndex = 25
-        Me.Label6.Text = "Direccion"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(444, 271)
+        Me.Label5.Location = New System.Drawing.Point(911, 208)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(92, 27)
+        Me.Label5.Size = New System.Drawing.Size(96, 27)
         Me.Label5.TabIndex = 24
-        Me.Label5.Text = "Telefono"
+        Me.Label5.Text = "Direccion"
         '
         'Label4
         '
@@ -239,22 +209,22 @@ Partial Class Form3
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Black
-        Me.Label4.Location = New System.Drawing.Point(397, 212)
+        Me.Label4.Location = New System.Drawing.Point(435, 215)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(139, 27)
+        Me.Label4.Size = New System.Drawing.Size(92, 27)
         Me.Label4.TabIndex = 23
-        Me.Label4.Text = "Identificacion"
+        Me.Label4.Text = "Telefono"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(927, 150)
+        Me.Label3.Location = New System.Drawing.Point(864, 150)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(83, 27)
+        Me.Label3.Size = New System.Drawing.Size(139, 27)
         Me.Label3.TabIndex = 22
-        Me.Label3.Text = "Apellido"
+        Me.Label3.Text = "Identificacion"
         '
         'Label2
         '
@@ -262,7 +232,7 @@ Partial Class Form3
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Black
-        Me.Label2.Location = New System.Drawing.Point(453, 150)
+        Me.Label2.Location = New System.Drawing.Point(444, 150)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(83, 27)
         Me.Label2.TabIndex = 21
@@ -384,18 +354,40 @@ Partial Class Form3
         'Button6
         '
         Me.Button6.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(700, 518)
+        Me.Button6.Location = New System.Drawing.Point(648, 427)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(119, 41)
+        Me.Button6.Size = New System.Drawing.Size(120, 70)
         Me.Button6.TabIndex = 41
-        Me.Button6.Text = "Reportes"
+        Me.Button6.Text = "Habilitar Datos"
         Me.Button6.UseVisualStyleBackColor = True
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"Nacional", "Internacional"})
+        Me.ComboBox1.Location = New System.Drawing.Point(1009, 274)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(262, 35)
+        Me.ComboBox1.TabIndex = 42
+        '
+        'Button7
+        '
+        Me.Button7.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button7.Location = New System.Drawing.Point(831, 427)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(120, 70)
+        Me.Button7.TabIndex = 43
+        Me.Button7.Text = "Mostrar Datos"
+        Me.Button7.UseVisualStyleBackColor = True
         '
         'Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1311, 587)
+        Me.Controls.Add(Me.Button7)
+        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.BindingNavigator1)
         Me.Controls.Add(Me.Button5)
@@ -403,8 +395,6 @@ Partial Class Form3
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.TextBox7)
-        Me.Controls.Add(Me.TextBox6)
         Me.Controls.Add(Me.TextBox5)
         Me.Controls.Add(Me.TextBox4)
         Me.Controls.Add(Me.TextBox3)
@@ -412,7 +402,6 @@ Partial Class Form3
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
@@ -435,8 +424,6 @@ Partial Class Form3
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents TextBox7 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
@@ -444,7 +431,6 @@ Partial Class Form3
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
@@ -466,4 +452,6 @@ Partial Class Form3
     Friend WithEvents ClienteTableAdapter As Almacen.inventarioDataSetTableAdapters.clienteTableAdapter
     Friend WithEvents ProveedorTableAdapter As Almacen.inventarioDataSetTableAdapters.ProveedorTableAdapter
     Friend WithEvents Button6 As System.Windows.Forms.Button
+    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents Button7 As System.Windows.Forms.Button
 End Class

@@ -1,4 +1,5 @@
-﻿Public Class Form3
+﻿Imports System.Data.SQLite
+Public Class Form3
 
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
         Dim salir As DialogResult
@@ -11,24 +12,41 @@
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        Button1.Enabled = False
-        Button2.Enabled = True
-        Button3.Enabled = True
-        Button4.Enabled = True
+        'Button1.Enabled = False
+        'Button2.Enabled = True
+        'Button3.Enabled = True
+        'Button4.Enabled = True
+
+        Dim SQLSelect As String
+
+        SQLSelect = "INSERT INTO proveedor (nombre,identificacion,telefono,direccion,tipo_proveedor,correo)  VALUES(" + "'" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "','" + TextBox4.Text + "','" + ComboBox1.Text + "','" + TextBox5.Text + "');"
+        Dim connection As String = "Data Source=Almacen.db;Version=3;New=False;Compress=True;"
+
+        Dim SQLConn As New SQLiteConnection(connection)
+        Dim SQLcmd As New SQLiteCommand(SQLConn)
+        SQLcmd.CommandText = SQLSelect
+
+        If SQLConn.State <> ConnectionState.Open Then
+            SQLConn.Open()
+        End If
+        Dim dt As New DataTable()
+        Dim ds As New DataSet()
+        Dim da As New SQLiteDataAdapter(SQLcmd)
+
+        ' Creamos un SQLcmd y le asignamos la cadena de consulta
+        MessageBox.Show("   " + SQLSelect)
+        SQLcmd = SQLConn.CreateCommand()
+        SQLcmd.CommandText = SQLSelect
+        SQLcmd.ExecuteNonQuery()
+        SQLConn.Close()
+        MessageBox.Show("Ingreso de Proveedor correctamente")
 
         TextBox1.Enabled = False
         TextBox2.Enabled = False
         TextBox3.Enabled = False
         TextBox4.Enabled = False
         TextBox5.Enabled = False
-        TextBox6.Enabled = False
-        TextBox7.Enabled = False
-        If (InventarioDataSet.HasChanges()) Then
-            Me.ProveedorTableAdapter.Update(Me.InventarioDataSet.Proveedor)
-            MessageBox.Show("Usted ha ingresado un proveedor correctamente", "ingreso")
-        End If
-        'Ir al primer resgistro de la tabla
-        BindingSource1.Position = 0
+        ComboBox1.Enabled = False
 
     End Sub
 
@@ -41,8 +59,6 @@
         TextBox3.Enabled = True
         TextBox4.Enabled = True
         TextBox5.Enabled = True
-        TextBox6.Enabled = True
-        TextBox7.Enabled = True
 
         Button1.Enabled = False
         Button3.Enabled = False
@@ -59,8 +75,6 @@
                 TextBox3.Enabled = False
                 TextBox4.Enabled = False
                 TextBox5.Enabled = False
-                TextBox6.Enabled = False
-                TextBox7.Enabled = False
 
                 Button1.Enabled = False
                 Button3.Enabled = True
@@ -99,8 +113,6 @@
         TextBox3.Enabled = False
         TextBox4.Enabled = False
         TextBox5.Enabled = False
-        TextBox6.Enabled = False
-        TextBox7.Enabled = False
         Button1.Enabled = False
     End Sub
 
@@ -110,8 +122,6 @@
         TextBox3.Enabled = False
         TextBox4.Enabled = False
         TextBox5.Enabled = False
-        TextBox6.Enabled = False
-        TextBox7.Enabled = False
         Dim mitabla As DataTable = InventarioDataSet.Proveedor
         Dim cfilas As DataRowCollection = mitabla.Rows
         Dim filaBuscada() As DataRow 'Matriz de filas
@@ -153,8 +163,6 @@
         TextBox3.Enabled = True
         TextBox4.Enabled = True
         TextBox5.Enabled = True
-        TextBox6.Enabled = True
-        TextBox7.Enabled = True
 
         Button1.Enabled = False
         Button2.Enabled = False
@@ -173,7 +181,14 @@
     End Sub
 
     Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
-        Form10.Show()
-        Form10.WindowState = FormWindowState.Maximized
+        TextBox1.Enabled = True
+        TextBox2.Enabled = True
+        TextBox3.Enabled = True
+        TextBox4.Enabled = True
+        TextBox5.Enabled = True
+        Button1.Enabled = True
+        Button2.Enabled = True
+
+        Button4.Enabled = False
     End Sub
 End Class

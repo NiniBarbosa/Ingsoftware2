@@ -20,15 +20,16 @@ Public Class Form1
         Dim ds As New DataSet()
         Dim da As New SQLiteDataAdapter(SQLcmd)
         da.Fill(dt)
-        If dt.Rows.Count > 0 Then
+        If dt.Rows.Count <= 0 Then
+            MessageBox.Show("Usted ha ingresado un Usuario o una Contraseña erroneos")
+            MessageBox.Show("Vuelva a intentarlo")
+        Else
             Dim campos As String() = New String(dt.Rows.Count - 1) {}
             For i As Integer = 0 To dt.Rows.Count - 1
+
                 If DirectCast(dt.Rows(i)("login"), [String]).Equals(TextBox1.Text) And DirectCast(dt.Rows(i)("password"), [String]).Equals(TextBox2.Text) Then
                     Form2.Show()
                     Me.Finalize()
-                Else
-                    MessageBox.Show("Usted ha ingresado un Usuario o una Contraseña erroneos")
-                    MessageBox.Show("Vuelva a intentarlo")
                 End If
             Next
             SQLConn.Close()
