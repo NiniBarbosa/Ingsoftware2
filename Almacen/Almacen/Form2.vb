@@ -1,17 +1,8 @@
 ﻿Public Class Form2
-    Private Sub ClienteToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ClienteToolStripMenuItem.Click
-
+    Private Sub ClienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClienteToolStripMenuItem.Click
         Form5.MdiParent = Me
         Form5.Show()
         Form5.WindowState = FormWindowState.Maximized
-        Me.ClienteToolStripMenuItem.Enabled = False
-        Me.ProveedorToolStripMenuItem.Enabled = True
-        Me.ProductoToolStripMenuItem.Enabled = True
-        Me.MercanciaToolStripMenuItem.Enabled = True
-        Me.SalidaToolStripMenuItem.Enabled = True
-        Me.IngresoToolStripMenuItem.Enabled = True
-        Me.VentaToolStripMenuItem.Enabled = True
-
     End Sub
     Private Sub ProveedorToolStripMenuItem_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ProveedorToolStripMenuItem.Click
         Form3.MdiParent = Me

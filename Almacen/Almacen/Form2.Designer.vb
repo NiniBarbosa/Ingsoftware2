@@ -74,13 +74,13 @@ Partial Class Form2
         'IngresoToolStripMenuItem
         '
         Me.IngresoToolStripMenuItem.Name = "IngresoToolStripMenuItem"
-        Me.IngresoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.IngresoToolStripMenuItem.Size = New System.Drawing.Size(113, 22)
         Me.IngresoToolStripMenuItem.Text = "Ingreso"
         '
         'SalidaToolStripMenuItem
         '
         Me.SalidaToolStripMenuItem.Name = "SalidaToolStripMenuItem"
-        Me.SalidaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SalidaToolStripMenuItem.Size = New System.Drawing.Size(113, 22)
         Me.SalidaToolStripMenuItem.Text = "Salida"
         '
         'VentaToolStripMenuItem

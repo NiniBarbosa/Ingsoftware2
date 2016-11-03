@@ -44,14 +44,17 @@ Partial Class Form5
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ClienteTableAdapter = New Almacen.inventarioDataSetTableAdapters.clienteTableAdapter()
         Me.Button6 = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Button7 = New System.Windows.Forms.Button()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.InventarioDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button5
         '
         Me.Button5.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Location = New System.Drawing.Point(31, 588)
+        Me.Button5.Location = New System.Drawing.Point(183, 690)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(105, 36)
         Me.Button5.TabIndex = 31
@@ -87,6 +90,7 @@ Partial Class Form5
         Me.Button2.TabIndex = 28
         Me.Button2.Text = "Modificar"
         Me.Button2.UseVisualStyleBackColor = True
+        Me.Button2.Visible = False
         '
         'Button1
         '
@@ -101,6 +105,7 @@ Partial Class Form5
         'TextBox5
         '
         Me.TextBox5.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "direccion", True))
+        Me.TextBox5.Enabled = False
         Me.TextBox5.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox5.Location = New System.Drawing.Point(128, 343)
         Me.TextBox5.Name = "TextBox5"
@@ -120,6 +125,7 @@ Partial Class Form5
         'TextBox4
         '
         Me.TextBox4.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "telefono", True))
+        Me.TextBox4.Enabled = False
         Me.TextBox4.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox4.Location = New System.Drawing.Point(630, 248)
         Me.TextBox4.Name = "TextBox4"
@@ -129,6 +135,7 @@ Partial Class Form5
         'TextBox3
         '
         Me.TextBox3.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "cc", True))
+        Me.TextBox3.Enabled = False
         Me.TextBox3.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox3.Location = New System.Drawing.Point(128, 247)
         Me.TextBox3.Name = "TextBox3"
@@ -138,6 +145,7 @@ Partial Class Form5
         'TextBox2
         '
         Me.TextBox2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "apellido", True))
+        Me.TextBox2.Enabled = False
         Me.TextBox2.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox2.Location = New System.Drawing.Point(630, 154)
         Me.TextBox2.Name = "TextBox2"
@@ -147,6 +155,7 @@ Partial Class Form5
         'TextBox1
         '
         Me.TextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "nombre", True))
+        Me.TextBox1.Enabled = False
         Me.TextBox1.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox1.Location = New System.Drawing.Point(128, 149)
         Me.TextBox1.Name = "TextBox1"
@@ -226,19 +235,45 @@ Partial Class Form5
         'Button6
         '
         Me.Button6.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(322, 588)
+        Me.Button6.Location = New System.Drawing.Point(309, 588)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(118, 36)
+        Me.Button6.Size = New System.Drawing.Size(135, 70)
         Me.Button6.TabIndex = 33
-        Me.Button6.Text = "Reportes"
+        Me.Button6.Text = "Mostrar Datos"
         Me.Button6.UseVisualStyleBackColor = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AllowUserToOrderColumns = True
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(12, 756)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
+        Me.DataGridView1.Size = New System.Drawing.Size(544, 138)
+        Me.DataGridView1.TabIndex = 34
+        Me.DataGridView1.Visible = False
+        '
+        'Button7
+        '
+        Me.Button7.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button7.Location = New System.Drawing.Point(27, 588)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(131, 70)
+        Me.Button7.TabIndex = 35
+        Me.Button7.Text = "Habilitar campos"
+        Me.Button7.UseVisualStyleBackColor = True
         '
         'Form5
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-        Me.ClientSize = New System.Drawing.Size(1370, 670)
+        Me.ClientSize = New System.Drawing.Size(1370, 951)
+        Me.Controls.Add(Me.Button7)
+        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
@@ -260,6 +295,7 @@ Partial Class Form5
         Me.Text = "Clientes"
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.InventarioDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -284,4 +320,6 @@ Partial Class Form5
     Friend WithEvents InventarioDataSet As Almacen.inventarioDataSet
     Friend WithEvents ClienteTableAdapter As Almacen.inventarioDataSetTableAdapters.clienteTableAdapter
     Friend WithEvents Button6 As System.Windows.Forms.Button
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents Button7 As System.Windows.Forms.Button
 End Class
