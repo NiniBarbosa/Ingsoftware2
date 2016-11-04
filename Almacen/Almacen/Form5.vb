@@ -49,6 +49,11 @@ Public Class Form5
         SQLcmd.ExecuteNonQuery()
         SQLConn.Close()
         MessageBox.Show("Ingreso de cliente correctamente")
+        TextBox1.Text = ""
+        TextBox2.Text = ""
+        TextBox3.Text = ""
+        TextBox4.Text = ""
+        TextBox5.Text = ""
     End Sub
 
     Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
@@ -79,45 +84,41 @@ Public Class Form5
 
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
         DataGridView1.Visible = False
+        Dim NL As String = Environment.NewLine
+        If (MessageBox.Show(("¿Esta seguro de eliminar el Cliente? " & NL), "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes) Then
 
-        Dim SQLSelect As String
-        SQLSelect = "DELETE FROM cliente WHERE cedula=" + TextBox3.Text + ""
-        MessageBox.Show("   " + SQLSelect)
+            Dim SQLSelect As String
+            SQLSelect = "DELETE FROM cliente WHERE cedula=" + TextBox3.Text + ""
+            MessageBox.Show("   " + SQLSelect)
 
-        Dim connection As String = "Data Source=Almacen.db;Version=3;New=False;Compress=True;"
+            Dim connection As String = "Data Source=Almacen.db;Version=3;New=False;Compress=True;"
 
-        Dim SQLConn As New SQLiteConnection(connection)
-        Dim SQLcmd As New SQLiteCommand(SQLConn)
-        SQLcmd.CommandText = SQLSelect
+            Dim SQLConn As New SQLiteConnection(connection)
+            Dim SQLcmd As New SQLiteCommand(SQLConn)
+            SQLcmd.CommandText = SQLSelect
 
-        If SQLConn.State <> ConnectionState.Open Then
-            SQLConn.Open()
+            If SQLConn.State <> ConnectionState.Open Then
+                SQLConn.Open()
+            End If
+
+            Dim dt As New DataTable()
+            Dim ds As New DataSet()
+            Dim da As New SQLiteDataAdapter(SQLcmd)
+
+            ' Creamos un SQLiteCommand y le asignamos la cadena de consulta
+            SQLcmd = SQLConn.CreateCommand()
+            SQLcmd.CommandText = SQLSelect
+            SQLcmd.ExecuteNonQuery()
+            SQLConn.Close()
+            MessageBox.Show("Informacion eliminada correctamente")
+            'Ir al primer resgistro de la tabla
+            BindingSource1.Position = 0
+            TextBox1.Text = ""
+            TextBox2.Text = ""
+            TextBox3.Text = ""
+            TextBox4.Text = ""
+            TextBox5.Text = ""
         End If
-
-        Dim dt As New DataTable()
-        Dim ds As New DataSet()
-        Dim da As New SQLiteDataAdapter(SQLcmd)
-
-        ' Creamos un SQLiteCommand y le asignamos la cadena de consulta
-        SQLcmd = SQLConn.CreateCommand()
-        SQLcmd.CommandText = SQLSelect
-        SQLcmd.ExecuteNonQuery()
-        SQLConn.Close()
-        MessageBox.Show("Informacion eliminada correctamente")
-
-        'Dim vistaFilaActual As DataRowView
-        'Dim NL As String = Environment.NewLine
-        'If (MessageBox.Show(("¿Esta seguro de eliminar el Cliente? " & NL), "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes) Then
-        '    vistaFilaActual = BindingSource1.Current
-        '    vistaFilaActual.Row.Delete()
-        '    BindingSource1.Position = BindingSource1.Count - 1
-        '    If (InventarioDataSet.HasChanges()) Then
-        '        Me.ClienteTableAdapter.Update(Me.InventarioDataSet.cliente)
-        '        MessageBox.Show("Cliente eliminado correctamente")
-        '    End If
-        '    'Ir al primer resgistro de la tabla
-        '    BindingSource1.Position = 0
-        'End If
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
@@ -129,82 +130,96 @@ Public Class Form5
         TextBox4.Enabled = True
         TextBox5.Enabled = True
 
-        Dim SQLSelect As String
-        SQLSelect = "UPDATE cliente SET nombre='" + TextBox1.Text + "', apellido='" + TextBox2.Text + "', telefono='" + TextBox4.Text + "', direccion='" + TextBox5.Text + "' WHERE cedula='" + TextBox3.Text + "'"
-        'MessageBox.Show("   " + SQLSelect)
-        
-        Dim connection As String = "Data Source=Almacen.db;Version=3;New=False;Compress=True;"
+        Dim modificar As DialogResult
+        modificar = MessageBox.Show("¿Esta seguro de modificar los datos?", "Modificar Proveedor", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
-        Dim SQLConn As New SQLiteConnection(connection)
-        Dim SQLcmd As New SQLiteCommand(SQLConn)
-        SQLcmd.CommandText = SQLSelect
+        If (modificar = DialogResult.Yes) Then
+            Dim SQLSelect As String
+            SQLSelect = "UPDATE cliente SET nombre='" + TextBox1.Text + "', apellido='" + TextBox2.Text + "', telefono='" + TextBox4.Text + "', direccion='" + TextBox5.Text + "' WHERE cedula='" + TextBox3.Text + "'"
+            'MessageBox.Show("   " + SQLSelect)
 
-        If SQLConn.State <> ConnectionState.Open Then
-            SQLConn.Open()
+            Dim connection As String = "Data Source=Almacen.db;Version=3;New=False;Compress=True;"
+
+            Dim SQLConn As New SQLiteConnection(connection)
+            Dim SQLcmd As New SQLiteCommand(SQLConn)
+            SQLcmd.CommandText = SQLSelect
+
+            If SQLConn.State <> ConnectionState.Open Then
+                SQLConn.Open()
+            End If
+
+            Dim dt As New DataTable()
+            Dim ds As New DataSet()
+            Dim da As New SQLiteDataAdapter(SQLcmd)
+
+            ' Creamos un SQLiteCommand y le asignamos la cadena de consulta
+            SQLcmd = SQLConn.CreateCommand()
+            SQLcmd.CommandText = SQLSelect
+            SQLcmd.ExecuteNonQuery()
+            SQLConn.Close()
+            MessageBox.Show("Informacion modificada correctamente")
         End If
-        
-        Dim dt As New DataTable()
-        Dim ds As New DataSet()
-        Dim da As New SQLiteDataAdapter(SQLcmd)
+        'Ir al primer resgistro de la tabla
+        BindingSource1.Position = 0
 
-        ' Creamos un SQLiteCommand y le asignamos la cadena de consulta
-        SQLcmd = SQLConn.CreateCommand()
-        SQLcmd.CommandText = SQLSelect
-        SQLcmd.ExecuteNonQuery()
-        SQLConn.Close()
-        MessageBox.Show("Informacion modificada correctamente")
+        TextBox1.Text = ""
+        TextBox2.Text = ""
+        TextBox3.Text = ""
+        TextBox4.Text = ""
+        TextBox5.Text = ""
 
     End Sub
 
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
         TextBox1.Enabled = False
         TextBox2.Enabled = False
-        TextBox3.Enabled = False
+        TextBox3.Enabled = True
         TextBox4.Enabled = False
         TextBox5.Enabled = False
         Button1.Enabled = False
         DataGridView1.Visible = False
 
-        Dim buscar, criterio As String
-        buscar = InputBox("Digite el numero del cedula del cliente que desea buscar", "Buscar")
-        criterio = buscar
+        If TextBox3.Text <> "" Then
+            Dim sqlconsulta As String
+            sqlconsulta = "SELECT * FROM cliente where cedula = " + TextBox2.Text
+            'MessageBox.Show("   " + sqlconsulta)
+            Dim connection As String = "Data Source=Almacen.db;Version=3;New=False;Compress=True;"
+            Dim SQLConn As New SQLiteConnection(connection)
+            Dim SQLcmd As New SQLiteCommand(SQLConn)
+            SQLcmd.CommandText = sqlconsulta
+            'Dim SQLdr As SQLiteDataReader
+            If SQLConn.State <> ConnectionState.Open Then
+                SQLConn.Open()
+            End If
+            Dim dt As New DataTable()
+            Dim ds As New DataSet()
+            Dim da As New SQLiteDataAdapter(SQLcmd)
+            da.Fill(dt)
 
+            If dt.Rows.Count <= 0 Then
+                MessageBox.Show("El cliente no existe")
+                MessageBox.Show("Vuelva a intentarlo")
+            Else
+                For Each row As DataRow In dt.Rows
+                    TextBox1.Text = CStr(row("nombre"))
+                    TextBox2.Text = CStr(row("apellido"))
+                    TextBox3.Text = CStr(row("cedula"))
+                    TextBox4.Text = CStr(row("telefono"))
+                    TextBox5.Text = CStr(row("direccion"))
+                Next
+                SQLConn.Close()
+                Button4.Enabled = True
+            End If
 
-        Dim sqlconsulta As String
-        sqlconsulta = "SELECT * FROM cliente where cedula = " + criterio
-        'MessageBox.Show("   " + sqlconsulta)
-        Dim connection As String = "Data Source=Almacen.db;Version=3;New=False;Compress=True;"
+            'DataGridView1.Visible = True
+            'DataGridView1.DataSource = dt
 
-        Dim SQLConn As New SQLiteConnection(connection)
-        Dim SQLcmd As New SQLiteCommand(SQLConn)
-        SQLcmd.CommandText = sqlconsulta
-        'Dim SQLdr As SQLiteDataReader
-        If SQLConn.State <> ConnectionState.Open Then
-            SQLConn.Open()
+            TextBox1.Text = ""
+            TextBox2.Text = ""
+            TextBox3.Text = ""
+            TextBox4.Text = ""
+            TextBox5.Text = ""
         End If
-        Dim dt As New DataTable()
-        Dim ds As New DataSet()
-        Dim da As New SQLiteDataAdapter(SQLcmd)
-        da.Fill(dt)
-
-        If dt.Rows.Count <= 0 Then
-            MessageBox.Show("El cliente no existe")
-            MessageBox.Show("Vuelva a intentarlo")
-        Else
-            For Each row As DataRow In dt.Rows
-                TextBox1.Text = CStr(row("nombre"))
-                TextBox2.Text = CStr(row("apellido"))
-                TextBox3.Text = CStr(row("cedula"))
-                TextBox4.Text = CStr(row("telefono"))
-                TextBox5.Text = CStr(row("direccion"))
-            Next
-            SQLConn.Close()
-        End If
-        'DataGridView1.Visible = True
-        'DataGridView1.DataSource = dt
-
-        
-        Button4.Enabled = True
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
@@ -215,7 +230,18 @@ Public Class Form5
         TextBox5.Enabled = True
         Button1.Enabled = True
         Button2.Enabled = True
-
+        DataGridView1.Visible = False
         Button4.Enabled = False
+        TextBox1.Text = ""
+        TextBox2.Text = ""
+        TextBox3.Text = ""
+        TextBox4.Text = ""
+        TextBox5.Text = ""
+    End Sub
+
+    Private Sub TextBox3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox3.KeyPress
+        If Not IsNumeric(e.KeyChar) Then
+            e.Handled = True
+        End If
     End Sub
 End Class

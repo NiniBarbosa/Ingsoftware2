@@ -59,10 +59,12 @@ Partial Class Form3
         Me.Button6 = New System.Windows.Forms.Button()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Button7 = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.InventarioDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BindingNavigator1.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button5
@@ -77,6 +79,7 @@ Partial Class Form3
         '
         'Button4
         '
+        Me.Button4.Enabled = False
         Me.Button4.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.Location = New System.Drawing.Point(1091, 361)
         Me.Button4.Name = "Button4"
@@ -97,6 +100,7 @@ Partial Class Form3
         '
         'Button2
         '
+        Me.Button2.Enabled = False
         Me.Button2.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.Location = New System.Drawing.Point(731, 361)
         Me.Button2.Name = "Button2"
@@ -107,12 +111,13 @@ Partial Class Form3
         '
         'Button1
         '
+        Me.Button1.Enabled = False
         Me.Button1.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Location = New System.Drawing.Point(563, 361)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(120, 41)
         Me.Button1.TabIndex = 35
-        Me.Button1.Text = "Guardar"
+        Me.Button1.Text = "Crear"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'BindingSource1
@@ -175,11 +180,11 @@ Partial Class Form3
         Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.Color.Transparent
         Me.Label8.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(345, 274)
+        Me.Label8.Location = New System.Drawing.Point(454, 271)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(182, 27)
+        Me.Label8.Size = New System.Drawing.Size(73, 27)
         Me.Label8.TabIndex = 27
-        Me.Label8.Text = "Correo Electronico"
+        Me.Label8.Text = "Correo"
         '
         'Label7
         '
@@ -363,6 +368,7 @@ Partial Class Form3
         '
         'ComboBox1
         '
+        Me.ComboBox1.Enabled = False
         Me.ComboBox1.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Nacional", "Internacional"})
@@ -381,11 +387,26 @@ Partial Class Form3
         Me.Button7.Text = "Mostrar Datos"
         Me.Button7.UseVisualStyleBackColor = True
         '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AllowUserToOrderColumns = True
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(637, 535)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
+        Me.DataGridView1.Size = New System.Drawing.Size(544, 138)
+        Me.DataGridView1.TabIndex = 44
+        Me.DataGridView1.Visible = False
+        '
         'Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1311, 587)
+        Me.ClientSize = New System.Drawing.Size(1311, 1062)
+        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Button6)
@@ -415,6 +436,7 @@ Partial Class Form3
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BindingNavigator1.ResumeLayout(False)
         Me.BindingNavigator1.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -454,4 +476,5 @@ Partial Class Form3
     Friend WithEvents Button6 As System.Windows.Forms.Button
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents Button7 As System.Windows.Forms.Button
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
 End Class

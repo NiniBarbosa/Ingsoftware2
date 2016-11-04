@@ -102,7 +102,7 @@ Partial Class Form5
         Me.Button1.Size = New System.Drawing.Size(120, 36)
         Me.Button1.TabIndex = 27
         Me.Button1.TabStop = False
-        Me.Button1.Text = "Guardar"
+        Me.Button1.Text = "Crear"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'TextBox5

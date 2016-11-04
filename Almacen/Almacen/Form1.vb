@@ -23,6 +23,8 @@ Public Class Form1
         If dt.Rows.Count <= 0 Then
             MessageBox.Show("Usted ha ingresado un Usuario o una Contraseña erroneos")
             MessageBox.Show("Vuelva a intentarlo")
+            TextBox1.Text = ""
+            TextBox2.Text = ""
         Else
             Dim campos As String() = New String(dt.Rows.Count - 1) {}
             For i As Integer = 0 To dt.Rows.Count - 1
@@ -34,5 +36,12 @@ Public Class Form1
             Next
             SQLConn.Close()
         End If
+    End Sub
+
+    Private Sub TextBox2_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox2.KeyDown
+        If e.KeyValue = 13 Then
+            Button1_Click(Nothing, Nothing)
+        End If
+
     End Sub
 End Class

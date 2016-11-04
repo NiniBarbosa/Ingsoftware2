@@ -16,6 +16,7 @@ Public Class Form3
         'Button2.Enabled = True
         'Button3.Enabled = True
         'Button4.Enabled = True
+        DataGridView1.Visible = False
 
         Dim SQLSelect As String
 
@@ -48,39 +49,76 @@ Public Class Form3
         TextBox5.Enabled = False
         ComboBox1.Enabled = False
 
+        TextBox1.Text = ""
+        TextBox2.Text = ""
+        TextBox3.Text = ""
+        TextBox4.Text = ""
+        TextBox5.Text = ""
+        ComboBox1.Text = ""
+
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
-        Dim modificar As DialogResult
-        modificar = MessageBox.Show("¿Esta seguro de modificar los datos?", "Modificar Proveedor", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
+        DataGridView1.Visible = False
+        Button4.Enabled = False
         TextBox1.Enabled = True
-        TextBox2.Enabled = True
+        TextBox2.Enabled = False
         TextBox3.Enabled = True
         TextBox4.Enabled = True
         TextBox5.Enabled = True
+        ComboBox1.Enabled = True
 
-        Button1.Enabled = False
-        Button3.Enabled = False
-        Button4.Enabled = False
+        Dim modificar As DialogResult
+        modificar = MessageBox.Show("¿Esta seguro de modificar los datos?", "Modificar Proveedor", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
-        If (InventarioDataSet.HasChanges()) Then
-            modificar = MessageBox.Show("¿Desea modificar el cliente?", "Modificar", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-            If (modificar = DialogResult.Yes) Then
+        'If (InventarioDataSet.HasChanges()) Then
+        'modificar = MessageBox.Show("¿Desea modificar el cliente?", "Modificar", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If (modificar = DialogResult.Yes) Then
+            Dim SQLSelect As String
+            SQLSelect = "UPDATE proveedor SET nombre='" + TextBox1.Text + "', telefono='" + TextBox3.Text + "', direccion='" + TextBox4.Text + "', correo='" + TextBox5.Text + "', tipo_proveedor='" + ComboBox1.Text + "'  WHERE identificacion='" + TextBox2.Text + "'"
+            MessageBox.Show("   " + SQLSelect)
 
-                Me.ProveedorTableAdapter.Update(Me.InventarioDataSet.Proveedor)
-                MessageBox.Show("Datos modificados correctaamente")
-                TextBox1.Enabled = False
-                TextBox2.Enabled = False
-                TextBox3.Enabled = False
-                TextBox4.Enabled = False
-                TextBox5.Enabled = False
+            Dim connection As String = "Data Source=Almacen.db;Version=3;New=False;Compress=True;"
 
-                Button1.Enabled = False
-                Button3.Enabled = True
-                Button4.Enabled = True
+            Dim SQLConn As New SQLiteConnection(connection)
+            Dim SQLcmd As New SQLiteCommand(SQLConn)
+            SQLcmd.CommandText = SQLSelect
+
+            If SQLConn.State <> ConnectionState.Open Then
+                SQLConn.Open()
             End If
+
+            Dim dt As New DataTable()
+            Dim ds As New DataSet()
+            Dim da As New SQLiteDataAdapter(SQLcmd)
+
+            ' Creamos un SQLiteCommand y le asignamos la cadena de consulta
+            SQLcmd = SQLConn.CreateCommand()
+            SQLcmd.CommandText = SQLSelect
+            SQLcmd.ExecuteNonQuery()
+            SQLConn.Close()
+            MessageBox.Show("Informacion modificada correctamente")
+
+            TextBox1.Enabled = False
+            TextBox2.Enabled = False
+            TextBox3.Enabled = False
+            TextBox4.Enabled = False
+            TextBox5.Enabled = False
+            ComboBox1.Enabled = False
+
+            TextBox1.Text = ""
+            TextBox2.Text = ""
+            TextBox3.Text = ""
+            TextBox4.Text = ""
+            TextBox5.Text = ""
+            ComboBox1.Text = ""
+
+            Button1.Enabled = False
+            Button3.Enabled = True
+            Button4.Enabled = True
         End If
+        'End If
         'Ir al primer resgistro de la tabla
         BindingSource1.Position = 0
 
@@ -88,19 +126,44 @@ Public Class Form3
     End Sub
 
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
-        Dim vistaFilaActual As DataRowView
-        Dim NL As String = Environment.NewLine
 
+        DataGridView1.Visible = False
+        Dim NL As String = Environment.NewLine
         If (MessageBox.Show(("¿Esta seguro de eliminar el proveedor? " & NL), "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes) Then
-            vistaFilaActual = BindingSource1.Current
-            vistaFilaActual.Row.Delete()
-            BindingSource1.Position = BindingSource1.Count - 1
-            If (InventarioDataSet.HasChanges()) Then
-                Me.ProveedorTableAdapter.Update(Me.InventarioDataSet.Proveedor)
-                MessageBox.Show("Usted ha eliminado el proveedor correctamente", "Eliminar")
+            Dim SQLSelect As String
+            SQLSelect = "DELETE FROM proveedor WHERE identificacion=" + TextBox2.Text + ""
+            MessageBox.Show("   " + SQLSelect)
+
+            Dim connection As String = "Data Source=Almacen.db;Version=3;New=False;Compress=True;"
+
+            Dim SQLConn As New SQLiteConnection(connection)
+            Dim SQLcmd As New SQLiteCommand(SQLConn)
+            SQLcmd.CommandText = SQLSelect
+
+            If SQLConn.State <> ConnectionState.Open Then
+                SQLConn.Open()
             End If
+
+            Dim dt As New DataTable()
+            Dim ds As New DataSet()
+            Dim da As New SQLiteDataAdapter(SQLcmd)
+
+            ' Creamos un SQLiteCommand y le asignamos la cadena de consulta
+            SQLcmd = SQLConn.CreateCommand()
+            SQLcmd.CommandText = SQLSelect
+            SQLcmd.ExecuteNonQuery()
+            SQLConn.Close()
+            MessageBox.Show("Informacion eliminada correctamente")
             'Ir al primer resgistro de la tabla
-            BindingSource1.Position = 0
+            'BindingSource1.Position = 0
+            Button4.Enabled = False
+
+            TextBox1.Text = ""
+            TextBox2.Text = ""
+            TextBox3.Text = ""
+            TextBox4.Text = ""
+            TextBox5.Text = ""
+            ComboBox1.Text = ""
         End If
 
     End Sub
@@ -118,43 +181,56 @@ Public Class Form3
 
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
         TextBox1.Enabled = False
-        TextBox2.Enabled = False
+        TextBox2.Enabled = True
         TextBox3.Enabled = False
         TextBox4.Enabled = False
         TextBox5.Enabled = False
-        Dim mitabla As DataTable = InventarioDataSet.Proveedor
-        Dim cfilas As DataRowCollection = mitabla.Rows
-        Dim filaBuscada() As DataRow 'Matriz de filas
-        Dim NL As String = Environment.NewLine
-        'Buscar en la columna Nombre de cada fila
+        ComboBox1.Enabled = False
+        Button2.Enabled = False
+        DataGridView1.Visible = False
 
-        Dim buscar, criterio As String
-        buscar = InputBox("Digite el nombre del proveedor")
-        criterio = "Nombre Like '*" & buscar & "*'"
+        Dim sqlconsulta As String
 
-        'Utilizar el metodo Slect para encontrar todas las filas que pasen el filtro y el filtro y almacenarlas en la matriz filaBuscada
-        filaBuscada = mitabla.Select(criterio)
-
-        If (filaBuscada.GetUpperBound(0) = -1) Then
-            MessageBox.Show("No se encontraron registros coincidentes", "Buscar")
-            Exit Sub
-        End If
-
-        'Seleccionar de las filas encontradas la que buscamos
-
-        Dim i, j As Integer
-
-        For i = 0 To filaBuscada.GetUpperBound(0)
-            If (MessageBox.Show("¿Este es el el nombre del proveedor? " & buscar, "Buscar", MessageBoxButtons.YesNo) = DialogResult.Yes) Then
-                'Si: mostrar en el formulario la fila seleccionada
-                For j = 0 To cfilas.Count - 1
-                    If (cfilas(j).Equals(filaBuscada(i))) Then
-                        BindingSource1.Position = j
-                    End If
-                Next j
+        If TextBox2.Text <> "" Then
+            sqlconsulta = "SELECT * FROM proveedor where identificacion = " + TextBox2.Text
+            'MessageBox.Show("   " + sqlconsulta)
+            Dim connection As String = "Data Source=Almacen.db;Version=3;New=False;Compress=True;"
+            Dim SQLConn As New SQLiteConnection(connection)
+            Dim SQLcmd As New SQLiteCommand(SQLConn)
+            SQLcmd.CommandText = sqlconsulta
+            'Dim SQLdr As SQLiteDataReader
+            If SQLConn.State <> ConnectionState.Open Then
+                SQLConn.Open()
             End If
-        Next i
+            Dim dt As New DataTable()
+            Dim ds As New DataSet()
+            Dim da As New SQLiteDataAdapter(SQLcmd)
+            da.Fill(dt)
 
+            If dt.Rows.Count <= 0 Then
+                MessageBox.Show("El proveedor no existe")
+                MessageBox.Show("Vuelva a intentarlo")
+            Else
+                For Each row As DataRow In dt.Rows
+                    TextBox1.Text = CStr(row("nombre"))
+                    TextBox2.Text = CStr(row("identificacion"))
+                    TextBox3.Text = CStr(row("telefono"))
+                    TextBox4.Text = CStr(row("direccion"))
+                    ComboBox1.Text = CStr(row("tipo_proveedor"))
+                    TextBox5.Text = CStr(row("correo"))
+                Next
+                SQLConn.Close()
+                Button4.Enabled = True
+            End If
+            'DataGridView1.Visible = True
+            'DataGridView1.DataSource = dt
+            TextBox1.Text = ""
+            TextBox2.Text = ""
+            TextBox3.Text = ""
+            TextBox4.Text = ""
+            TextBox5.Text = ""
+            ComboBox1.Text = ""
+        End If
     End Sub
 
     Private Sub BindingNavigatorAddNewItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BindingNavigatorAddNewItem.Click
@@ -188,7 +264,51 @@ Public Class Form3
         TextBox5.Enabled = True
         Button1.Enabled = True
         Button2.Enabled = True
+        ComboBox1.Enabled = True
+        Button4.Enabled = False
+        DataGridView1.Visible = False
+
+        TextBox1.Text = ""
+        TextBox2.Text = ""
+        TextBox3.Text = ""
+        TextBox4.Text = ""
+        TextBox5.Text = ""
+        ComboBox1.Text = ""
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        TextBox1.Text = ""
+        TextBox2.Text = ""
+        TextBox3.Text = ""
+        TextBox4.Text = ""
+        TextBox5.Text = ""
+        ComboBox1.Text = ""
 
         Button4.Enabled = False
+        DataGridView1.Visible = True
+        Dim sqlconsulta As String
+        sqlconsulta = "SELECT * FROM proveedor limit 100"
+
+        Dim connection As String = "Data Source=Almacen.db;Version=3;New=False;Compress=True;"
+
+        Dim SQLConn As New SQLiteConnection(connection)
+        Dim SQLcmd As New SQLiteCommand(SQLConn)
+        SQLcmd.CommandText = sqlconsulta
+        'Dim SQLdr As SQLiteDataReader
+        If SQLConn.State <> ConnectionState.Open Then
+            SQLConn.Open()
+        End If
+        Dim dt As New DataTable()
+        Dim ds As New DataSet()
+        Dim da As New SQLiteDataAdapter(SQLcmd)
+        da.Fill(dt)
+
+        DataGridView1.DataSource = dt
+    End Sub
+
+    Private Sub TextBox2_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox2.KeyPress
+        If Not IsNumeric(e.KeyChar) Then
+            e.Handled = True
+        End If
     End Sub
 End Class
