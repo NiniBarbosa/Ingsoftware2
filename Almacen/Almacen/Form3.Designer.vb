@@ -62,7 +62,7 @@ Partial Class Form3
         '
         Me.Button4.Enabled = False
         Me.Button4.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(1091, 361)
+        Me.Button4.Location = New System.Drawing.Point(1081, 376)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(120, 41)
         Me.Button4.TabIndex = 38
@@ -83,7 +83,7 @@ Partial Class Form3
         '
         Me.Button2.Enabled = False
         Me.Button2.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(731, 361)
+        Me.Button2.Location = New System.Drawing.Point(731, 376)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(135, 41)
         Me.Button2.TabIndex = 36
@@ -94,7 +94,7 @@ Partial Class Form3
         '
         Me.Button1.Enabled = False
         Me.Button1.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(563, 361)
+        Me.Button1.Location = New System.Drawing.Point(565, 376)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(120, 41)
         Me.Button1.TabIndex = 35

@@ -41,6 +41,5 @@ Public Class Form1
         If e.KeyValue = 13 Then
             Button1_Click(Nothing, Nothing)
         End If
-
     End Sub
 End Class
