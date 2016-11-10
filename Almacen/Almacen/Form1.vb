@@ -21,8 +21,7 @@ Public Class Form1
         Dim da As New SQLiteDataAdapter(SQLcmd)
         da.Fill(dt)
         If dt.Rows.Count <= 0 Then
-            MessageBox.Show("Usted ha ingresado un Usuario o una Contraseña erroneos")
-            MessageBox.Show("Vuelva a intentarlo")
+            MessageBox.Show("Usted ha ingresado un Usuario o una Contraseña erroneos,Vuelva a intentarlo")
             TextBox1.Text = ""
             TextBox2.Text = ""
         Else

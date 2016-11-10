@@ -22,7 +22,6 @@ Partial Class Form5
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form5))
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
@@ -30,8 +29,6 @@ Partial Class Form5
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.InventarioDataSet = New Almacen.inventarioDataSet()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
@@ -42,19 +39,17 @@ Partial Class Form5
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ClienteTableAdapter = New Almacen.inventarioDataSetTableAdapters.clienteTableAdapter()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Button7 = New System.Windows.Forms.Button()
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.InventarioDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Label7 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button5
         '
         Me.Button5.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Location = New System.Drawing.Point(205, 690)
+        Me.Button5.Location = New System.Drawing.Point(206, 711)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(120, 36)
         Me.Button5.TabIndex = 31
@@ -65,9 +60,9 @@ Partial Class Form5
         '
         Me.Button4.Enabled = False
         Me.Button4.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(345, 515)
+        Me.Button4.Location = New System.Drawing.Point(345, 532)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(120, 36)
+        Me.Button4.Size = New System.Drawing.Size(136, 36)
         Me.Button4.TabIndex = 30
         Me.Button4.Text = "Eliminar"
         Me.Button4.UseVisualStyleBackColor = True
@@ -77,7 +72,7 @@ Partial Class Form5
         Me.Button3.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.Location = New System.Drawing.Point(55, 515)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(120, 36)
+        Me.Button3.Size = New System.Drawing.Size(120, 70)
         Me.Button3.TabIndex = 29
         Me.Button3.Text = "Consultar"
         Me.Button3.UseVisualStyleBackColor = True
@@ -88,7 +83,7 @@ Partial Class Form5
         Me.Button2.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.Location = New System.Drawing.Point(345, 442)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(120, 36)
+        Me.Button2.Size = New System.Drawing.Size(136, 36)
         Me.Button2.TabIndex = 28
         Me.Button2.Text = "Modificar"
         Me.Button2.UseVisualStyleBackColor = True
@@ -99,7 +94,7 @@ Partial Class Form5
         Me.Button1.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Location = New System.Drawing.Point(55, 442)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(120, 36)
+        Me.Button1.Size = New System.Drawing.Size(121, 36)
         Me.Button1.TabIndex = 27
         Me.Button1.TabStop = False
         Me.Button1.Text = "Crear"
@@ -107,60 +102,50 @@ Partial Class Form5
         '
         'TextBox5
         '
-        Me.TextBox5.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "direccion", True))
         Me.TextBox5.Enabled = False
         Me.TextBox5.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox5.Location = New System.Drawing.Point(128, 343)
+        Me.TextBox5.MaxLength = 50
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(341, 34)
         Me.TextBox5.TabIndex = 26
         '
-        'BindingSource1
-        '
-        Me.BindingSource1.DataMember = "cliente"
-        Me.BindingSource1.DataSource = Me.InventarioDataSet
-        '
-        'InventarioDataSet
-        '
-        Me.InventarioDataSet.DataSetName = "inventarioDataSet"
-        Me.InventarioDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'TextBox4
         '
-        Me.TextBox4.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "telefono", True))
         Me.TextBox4.Enabled = False
         Me.TextBox4.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox4.Location = New System.Drawing.Point(630, 248)
+        Me.TextBox4.MaxLength = 20
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(341, 34)
         Me.TextBox4.TabIndex = 25
         '
         'TextBox3
         '
-        Me.TextBox3.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "cc", True))
         Me.TextBox3.Enabled = False
         Me.TextBox3.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox3.Location = New System.Drawing.Point(128, 247)
+        Me.TextBox3.MaxLength = 12
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(260, 34)
         Me.TextBox3.TabIndex = 24
         '
         'TextBox2
         '
-        Me.TextBox2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "apellido", True))
         Me.TextBox2.Enabled = False
         Me.TextBox2.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox2.Location = New System.Drawing.Point(630, 154)
+        Me.TextBox2.MaxLength = 80
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(341, 34)
         Me.TextBox2.TabIndex = 23
         '
         'TextBox1
         '
-        Me.TextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSource1, "nombre", True))
         Me.TextBox1.Enabled = False
         Me.TextBox1.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox1.Location = New System.Drawing.Point(128, 149)
+        Me.TextBox1.MaxLength = 80
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(341, 34)
         Me.TextBox1.TabIndex = 22
@@ -231,16 +216,12 @@ Partial Class Form5
         Me.Label1.TabIndex = 16
         Me.Label1.Text = "Clientes"
         '
-        'ClienteTableAdapter
-        '
-        Me.ClienteTableAdapter.ClearBeforeFill = True
-        '
         'Button6
         '
         Me.Button6.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(345, 588)
+        Me.Button6.Location = New System.Drawing.Point(346, 609)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(120, 70)
+        Me.Button6.Size = New System.Drawing.Size(135, 70)
         Me.Button6.TabIndex = 33
         Me.Button6.Text = "Mostrar Datos"
         Me.Button6.UseVisualStyleBackColor = True
@@ -251,7 +232,7 @@ Partial Class Form5
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.AllowUserToOrderColumns = True
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 756)
+        Me.DataGridView1.Location = New System.Drawing.Point(13, 777)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
@@ -262,12 +243,24 @@ Partial Class Form5
         'Button7
         '
         Me.Button7.Font = New System.Drawing.Font("Comic Sans MS", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.Location = New System.Drawing.Point(55, 588)
+        Me.Button7.Location = New System.Drawing.Point(56, 609)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(120, 70)
         Me.Button7.TabIndex = 35
         Me.Button7.Text = "Habilitar campos"
         Me.Button7.UseVisualStyleBackColor = True
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.Color.Transparent
+        Me.Label7.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(126, 208)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(158, 27)
+        Me.Label7.TabIndex = 36
+        Me.Label7.Text = "Digite la Cedula"
+        Me.Label7.Visible = False
         '
         'Form5
         '
@@ -275,6 +268,7 @@ Partial Class Form5
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(1370, 951)
+        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Button6)
@@ -296,8 +290,6 @@ Partial Class Form5
         Me.Controls.Add(Me.Label1)
         Me.Name = "Form5"
         Me.Text = "Clientes"
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.InventarioDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -319,10 +311,8 @@ Partial Class Form5
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents BindingSource1 As System.Windows.Forms.BindingSource
-    Friend WithEvents InventarioDataSet As Almacen.inventarioDataSet
-    Friend WithEvents ClienteTableAdapter As Almacen.inventarioDataSetTableAdapters.clienteTableAdapter
     Friend WithEvents Button6 As System.Windows.Forms.Button
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents Button7 As System.Windows.Forms.Button
+    Friend WithEvents Label7 As System.Windows.Forms.Label
 End Class
